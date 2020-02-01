@@ -1,15 +1,4 @@
-export class User {
-  constructor(
-    public email: string,
-    public id: string,
-    private authToken: string,
-    private tokenExpirationDate: Date
-  ) {}
-
-  get token() {
-    if (!this.tokenExpirationDate || new Date() > this.tokenExpirationDate) {
-      return null;
-    }
-    return this.authToken;
-  }
+export interface User {
+  email: string;
+  password: string;
 }
