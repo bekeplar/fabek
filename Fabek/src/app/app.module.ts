@@ -11,6 +11,14 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DropdownDirective } from './shared/dropdown.directive';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { ShippingTermsComponent } from './shipping-terms/shipping-terms.component';
+import { ProductsComponent } from './products/products.component';
+import { ProductCreateComponent } from './products/product-create/product-create.component';
+import { ProductsListComponent } from './products/product-list/product-list.component';
+import { ProductItemComponent } from './products/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +27,14 @@ import { DropdownDirective } from './shared/dropdown.directive';
     AuthComponent,
     LoadingSpinnerComponent,
     DropdownDirective,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    ShippingTermsComponent,
+    ProductsComponent,
+    ProductCreateComponent,
+    ProductsListComponent,
+    ProductItemComponent,
   ],
   imports: [
     BrowserModule,

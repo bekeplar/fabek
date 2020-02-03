@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-import { AuthService } from './auth.service';
+import { AuthService, AuthResponseData } from './auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -27,15 +27,14 @@ export class AuthComponent {
     const email = form.value.email;
     const password = form.value.password;
 
-    // tslint:disable-next-line: prefer-const
-    let authObs: Observable<[]>;
+    let authObs: Observable<AuthResponseData>;
 
     this.isLoading = true;
 
     if (this.isLoginMode) {
-      this.authService.login(email, password);
+     this.authService.login(email, password);
     } else {
-      this.authService.signUp(email, password);
+      this.authService.createUser(email, password);
     }
 
     authObs.subscribe(

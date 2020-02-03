@@ -6,7 +6,18 @@ import { Subject } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { User } from './user.model';
 
-const BACKEND_URL = environment.apiUrl + '/user/';
+const BACKEND_URL = environment.apiUrl + '/user';
+
+
+export interface AuthResponseData {
+  kind: string;
+  idToken: string;
+  email: string;
+  refreshToken: string;
+  expiresIn: string;
+  localId: string;
+  registered?: boolean;
+}
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -15,6 +26,7 @@ export class AuthService {
   private tokenTimer: any;
   private userId: string;
   private authStatusListener = new Subject<boolean>();
+  signup: any;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -34,8 +46,8 @@ export class AuthService {
     return this.authStatusListener.asObservable();
   }
 
-  signUp(email: string, password: string) {
-    const authData: User = { email: email, password: password };
+  createUser(email: string, password: string) {
+    const authData: User = { email, password };
     this.http.post(BACKEND_URL + '/signup', authData).subscribe(
       () => {
         this.router.navigate(['/']);
@@ -47,7 +59,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    const authData: User = { email: email, password: password };
+    const authData: User = { email, password };
     this.http
       .post<{ token: string; expiresIn: number; userId: string }>(
         BACKEND_URL + '/login',
@@ -131,9 +143,9 @@ export class AuthService {
       return;
     }
     return {
-      token: token,
+      token,
       expirationDate: new Date(expirationDate),
-      userId: userId
+      userId
     };
   }
 }

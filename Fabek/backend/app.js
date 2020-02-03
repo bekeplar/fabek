@@ -10,7 +10,7 @@ const app = express();
 connect(
     "mongodb+srv://max:" +
       process.env.MONGO_ATLAS_PW +
-      "@cluster0-ntrwp.mongodb.net/node-angular"
+      "@cluster0-ntrwp.mongodb.net/fabek"
   )
   .then(() => {
     console.log("Connected to database!");
@@ -37,5 +37,4 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/user", userRoutes);
-
 export default app;
