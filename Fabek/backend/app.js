@@ -4,6 +4,7 @@ import { json, urlencoded } from "body-parser";
 import { connect } from "mongoose";
 
 import userRoutes from "./routes/user";
+import productRoutes from "./routes/product";
 
 const app = express();
 
@@ -37,4 +38,5 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/user", userRoutes);
+app.use("/api/products", productRoutes);
 export default app;
