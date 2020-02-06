@@ -8,6 +8,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { ShippingTermsComponent } from './shipping-terms/shipping-terms.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductCreateComponent } from './products/product-create/product-create.component';
 
 const appRoutes: Routes = [
   { path: 'products', component: ProductsComponent },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'create', component: ProductCreateComponent },
   { path: 'shipping-terms', component: ShippingTermsComponent }
 ];
 
